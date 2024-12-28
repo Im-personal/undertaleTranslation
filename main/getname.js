@@ -57,13 +57,12 @@ function change(){
 function insert(){
 	
 	if(name=='undefined' || utreat == 'undefined'){
-		console.log("ye")
-		name = "Ты" //PLACEHOLDER
-		utreat = "PLACEHOLDER" //PLACEHOLDER
+		document.body.innerHTML=document.body.innerHTML.replace("[$REPLACE-UNAME$]","Вы знаете").replace("[$REPLACE-UNAME$]","говорите").replace("[$REPLACE-UTREAT$]","Корично-ирисковом Пироге").replace("[$REPLACE-UTREAT$]","возле вкуснях")
+	}else{
+		document.body.innerHTML=document.body.innerHTML.replace("[$REPLACE-UNAME$]",name+", ты знаешь").replace("[$REPLACE-UNAME$]","говоришь, "+name).replace("[$REPLACE-UTREAT$]","пироге, где главный ингридиент - "+utreat).replace("[$REPLACE-UTREAT$]","в комнате, которую "+utreat+" пропитал(а) своим запахом")
 	}
 	
-	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name)
-	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UTREAT$]",utreat)
+	
 	console.log("inserted!")
 	
 }

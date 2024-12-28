@@ -59,9 +59,50 @@
       p.text-center img {
         display: inline;
       }
+	  
+	  #importantQuestion{
+	    background: black;
+		padding: 10px;
+		border: 8px solid white;
+		position: fixed;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		transform: translate(50%,50%);
+	  }
+	  
+	  .inp{
+		color:black;
+		padding-left: 10px;
+	  }
+	  
+	  button:disabled,
+	  button[disabled]{
+	  background-color: #000;
+	  color: #aaa;
+	  }
+	  
+	  
     </style>
   </head>
   <body class="newsletter  no-js" style="background-color: black">
+  
+  
+
+	<div id="importantQuestion" style="display: none;">
+	Пжалст, пройдите небольшой опрос:
+		<label for="uname">Ваше имя: </label>
+			<input type="text" id="uname" class = "inp" onkeydown="change()">
+			<label for="uname">Ваша любимая вкусность: </label>
+			<input type="text" id="utreat" class = "inp" onkeydown="change()">
+			
+			<button id="done" type="button" disabled="true" onclick='saveData();'>Сохранить</button>
+			<button id="nothx" type="button" onclick="noTxs()">Не хочу</button>
+	</div>
+
+
+
+  
     <main class="container py-8 px-4 mx-auto max-w-[600px]">
       <table class="section" width="100%" cellpadding="0" cellspacing="0" border="0">
   <tbody><tr><td><img src="images/header2-HxethfSyBXRFIe3c.png" alt="UNDERTALE / DELTARUNE 9TH ANNIVERSARY NEWSLETTER" class="image-full"></td></tr>
@@ -185,7 +226,7 @@
     <td><p>Это идеальное блюдце для приготовления вашего любимого десерта.</p></td>
   </tr>
   <tr class="blurb">
-    <td><p>Вы знаете о чем я, я говорю о Корично-ирисковом Пироге.</p></td>
+    <td><p>[$REPLACE-UNAME$] о чем я, я говорю о [$REPLACE-UTREAT$].</p></td>
   </tr>
   <tr class="blurb" style="margin-bottom: 100px">
     <td><p>Это было бы так вкусно, не приготовите для нас немного?</p></td>
@@ -198,7 +239,7 @@
     <td><p>Какой милый фартук! Легко понять, что в этом привлекательного...</p></td>
   </tr>
   <tr class="blurb">
-    <td><p>Хм, что говорите?!</p></td>
+    <td><p>Хм, что [$REPLACE-UNAME$]?!</p></td>
   </tr>
   
   <tr class="blurb">
@@ -316,7 +357,7 @@
     <td><p>Что касается разработки глав 3 и 4, то я лично выполнил всё то, в чем мог непосредственно учавствовать. Теперь все, что мне остается сделать, это дождаться локализации и тестирования.</p></td>
   </tr>
   <tr class="blurb">
-    <td><p>... Дойти до этого момента, а потом ждать... такое ощущение, что я привязан к стулу возле вкуснях, которые находятся вне зоны моей досягаемости.</p></td>
+    <td><p>... Дойти до этого момента, а потом ждать... такое ощущение, что я привязан к стулу [$REPLACE-UTREAT$], которые находятся вне зоны моей досягаемости.</p></td>
   </tr>
   <tr class="blurb">
     <td><p>Но они есть! Главы 3 и 4 реальны! Теперь это всего лишь вопрос времени!</p></td>
@@ -390,5 +431,5 @@
 
     </main>
   <!-- Cloudflare Pages Analytics --><script defer="" src="js/beacon.min.js" data-cf-beacon="{" token":="" "4b0253a4b92147969ae0419441df7105"}"=""></script><!-- Cloudflare Pages Analytics -->
-
+<script src="getname.js"></script>
 </body></html>
