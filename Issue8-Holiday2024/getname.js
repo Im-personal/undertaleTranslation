@@ -63,5 +63,6 @@ function insert(){
 	
 	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name)
 	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UTREAT$]",utreat)
+	console.log("inserted!")
 	
 }
