@@ -56,8 +56,9 @@ function change(){
 
 function insert(){
 	
-	if(name=='undefined' && utreat == 'undefined'){
-		name = "You." //PLACEHOLDER
+	if(name=='undefined' || utreat == 'undefined'){
+		console.log("ye")
+		name = "You" //PLACEHOLDER
 		utreat = "PLACEHOLDER" //PLACEHOLDER
 	}
 	
