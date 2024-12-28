@@ -8,9 +8,14 @@ function getCookie(name) {
    if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-function setCookie(name, value)
+function setCookie(c_name,value,exdays)
 {
-	$.cookie(name,value,{path:'/'})
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null)
+                                 ? "" : "; expires="+exdate.toUTCString())
+                                + "; path=/";
+    document.cookie=c_name + "=" + c_value;
 }
 
 name = getCookie("uname")
