@@ -10,7 +10,7 @@ function getCookie(name) {
 
 function setCookie(name, value)
 {
-	document.cookie = name+'='+value;
+	$.cookie(name,value,{path:'/'})
 }
 
 name = getCookie("uname")
