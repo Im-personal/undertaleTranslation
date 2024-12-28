@@ -2,6 +2,12 @@ var iq = document.getElementById("importantQuestion");
 
 iq.style.display="none"
 
+function getCookie(name) {
+   var value = "; " + document.cookie;
+   var parts = value.split("; " + name + "=");
+   if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 function setCookie(c_name,value,exdays)
 {
     var exdate=new Date();
@@ -10,11 +16,6 @@ function setCookie(c_name,value,exdays)
                                  ? "" : "; expires="+exdate.toUTCString())
                                 + "; path=/";
     document.cookie=c_name + "=" + c_value;
-}
-
-function setCookie(name, value)
-{
-	$.cookie(name,value,{path:'/'})
 }
 
 name = getCookie("uname")
