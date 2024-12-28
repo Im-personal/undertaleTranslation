@@ -61,7 +61,7 @@ function insert(){
 		utreat = "PLACEHOLDER" //PLACEHOLDER
 	}
 	
-	document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name)
-	document.body.innerHTML.replaceAll("[$REPLACE-UTREAT$]",utreat)
+	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name)
+	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UTREAT$]",utreat)
 	
 }
