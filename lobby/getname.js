@@ -63,11 +63,11 @@ function insert(){
 	
 	if(name=='undefined' || utreat == 'undefined'){
 		console.log("ye")
-		name = "Ты" //PLACEHOLDER
+		name = "Ты знаешь" //PLACEHOLDER
 		utreat = "PLACEHOLDER" //PLACEHOLDER
 	}
 	
-	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name)
+	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name+" знает")
 	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UTREAT$]",utreat)
 	console.log("inserted!")
 	
