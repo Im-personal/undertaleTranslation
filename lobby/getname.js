@@ -45,7 +45,9 @@ function saveData(){
 	}
 	
 	
-	localStorage.setItem('utreat', 'ftreat');
+	setCookie("uname",fname);
+	setCookie("utreat",ftreat);
+	
 	
 	name = fname;
 	utreat = ftreat
