@@ -2,10 +2,17 @@ var iq = document.getElementById("importantQuestion");
 
 iq.style.display="none"
 
-function getCookie(name) {
+function getCookiepr(name) {
    var value = "; " + document.cookie;
    var parts = value.split("; " + name + "=");
    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+function getCookie(name){
+	a = localStorage.getItem(name);
+	if(getCookiepr(name))return getCookiepr(name);
+	if(a)return a;
+	return undefined;
 }
 
 function setCookie(c_name,value,exdays)
@@ -16,6 +23,8 @@ function setCookie(c_name,value,exdays)
                                  ? "" : "; expires="+exdate.toUTCString())
                                 + "; path=/";
     document.cookie=c_name + "=" + c_value;
+	
+	localStorage.setItem(c_name, value);
 }
 
 name = getCookie("uname")
@@ -34,8 +43,10 @@ function saveData(){
 	if(fname.length+ftreat.length<=0){
 		return;
 	}
-	setCookie("uname",fname);
-	setCookie("utreat",ftreat);
+	
+	
+	localStorage.setItem('utreat', 'ftreat');
+	
 	name = fname;
 	utreat = ftreat
 	insert();
@@ -64,11 +75,33 @@ function insert(){
 	if(name=='undefined' || utreat == 'undefined'){
 		console.log("ye")
 		name = "Ты знаешь" //PLACEHOLDER
+		document.body.innerHTML=document.body.innerHTML.replace("[$REPLACE-UNAME$]",name)
+		document.body.innerHTML=document.body.innerHTML.replace("[$REPLACE-UNAME$]",name)
 		utreat = "PLACEHOLDER" //PLACEHOLDER
-	}
-	
-	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UNAME$]",name+" знает")
+	}else{
+	document.getElementById("reset").style.display = "block";
+	document.body.innerHTML=document.body.innerHTML.replace("[$REPLACE-UNAME$]",name)
+	document.body.innerHTML=document.body.innerHTML.replace("[$REPLACE-UNAME$]",name+" знает")
 	document.body.innerHTML=document.body.innerHTML.replaceAll("[$REPLACE-UTREAT$]",utreat)
+	}
 	console.log("inserted!")
 	
+	
+	
+}
+
+function reset(){
+	deleteAllCookies() 
+	document.body.innerHTML = "File not found. <audio id=\"beep\" loop autoplay> <source src=\"wind.mp3\" type=\"audio/wav\" /></audio>"
+	//var audio = new Audio('wind.mp3');
+	//audio.play();
+}
+
+function deleteAllCookies() {
+    document.cookie.split(';').forEach(cookie => {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    });
+	localStorage.clear();
 }
